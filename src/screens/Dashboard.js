@@ -19,19 +19,19 @@ const image = {
 const Dashboard = () => {
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.text}>Let's learn together</Text> */}
+      <Text style={styles.text}>Let's learn together</Text>
       <Image style={styles.image} source={image} />
     </View>
   );
 };
 
-Dashboard.navigationOptions = {
-  headerTitle: "Let's learn together",
-  headerStyle: {
-    backgroundColor: Platform.OS === "android" ? "#256faf" : "256faf"
-  },
-  headerTintColor: Platform.OS === "android" ? "#256faf" : "#256faf"
-};
+// Dashboard.navigationOptions = {
+//   headerTitle: "Let's learn together",
+//   headerStyle: {
+//     backgroundColor: Platform.OS === "android" ? "#256faf" : "256faf"
+//   },
+//   headerTintColor: Platform.OS === "android" ? "#256faf" : "#256faf"
+// };
 
 const styles = StyleSheet.create({
   container: {
