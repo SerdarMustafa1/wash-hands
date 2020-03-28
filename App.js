@@ -1,10 +1,11 @@
 import * as React from "react";
-import { Text, StyleSheet, View, SafeAreaView } from "react-native";
+import { Text, StyleSheet, View, SafeAreaView, Platform } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import Dashboard from "./src/screens/Dashboard";
 import WashHandsScreen from "./src/screens/WashHands";
+import Reminders from "./src/screens/Reminders";
 
 function HomeScreen() {
   return (
@@ -22,10 +23,10 @@ function WashHands() {
   );
 }
 
-function Reminder() {
+function ReminderScreen() {
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Set a reminder!</Text>
+      <Reminders />
     </SafeAreaView>
   );
 }
@@ -37,7 +38,9 @@ function MyTabs() {
     <Tab.Navigator>
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="How to?" component={WashHands} />
-      <Tab.Screen name="Reminder" component={Reminder} />
+      {Platform.ios ? (
+        <Tab.Screen name="Reminder" component={ReminderScreen} />
+      ) : null}
     </Tab.Navigator>
   );
 }

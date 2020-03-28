@@ -10,15 +10,17 @@ import {
   Alert,
   TouchableOpacity,
   TouchableHighlight,
-  ScrollView
+  ScrollView,
+  Modal
 } from "react-native";
 import { Dimensions } from "react-native";
 import { WebView } from "react-native-webview";
 
 import * as Haptics from "expo-haptics";
 import { Audio } from "expo-av";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import { Video } from "expo-av";
+import VideoPlayer from "expo-video-player";
 
 import Player from "../components/VideoPlayer";
 
@@ -60,7 +62,13 @@ const WashHands = () => {
   };
 
   return (
-    <>
+    <View
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        marginHorizontal: 12
+      }}
+    >
       <Text style={styles.title}>Do you know how to wash your hands?</Text>
       <ScrollView>
         <Image source={image} style={styles.image} />
@@ -103,24 +111,14 @@ const WashHands = () => {
             <Ionicons name="ios-arrow-dropdown" size={32} color="#256faf" />
           </View>
           <View>
-            <Text>Shall we practise togther?</Text>
-            {/* <Video
-              source={{ uri: "https://youtu.be/S9VjeIWLnEg" }}
-              // source={{ uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
-              rate={1.0}
-              volume={1.0}
-              isMuted={false}
-              resizeMode="contain"
-              shouldPlay
-              isLooping
-              style={{ width: 300, height: 300 }}
-            /> */}
+            <Text style={styles.subTitle}>Shall we practise togther?</Text>
+            <Text style={styles.question}> Click below to start</Text>
 
             <Player />
           </View>
         </View>
       </ScrollView>
-    </>
+    </View>
   );
 };
 
@@ -141,21 +139,25 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: "contain",
     width: 300,
-    justifyContent: "center"
+    justifyContent: "center",
+    marginLeft: 10
   },
   subTitle: {
     fontWeight: "bold",
     marginBottom: 5,
-    color: "#256faf"
+    color: "#256faf",
+    textAlign: "center"
   },
   question: {
-    marginBottom: 5
+    marginBottom: 5,
+    textAlign: "center"
   },
   options: {
     marginTop: 15,
     marginBottom: 7,
     fontWeight: "500",
-    color: "#256faf"
+    color: "#256faf",
+    textAlign: "center"
   },
   answers: {
     display: "flex",
@@ -173,7 +175,18 @@ const styles = StyleSheet.create({
   chevron: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center"
+    justifyContent: "center",
+    marginBottom: 20
+  },
+  youTube: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    marginBottom: 20,
+    marginTop: 50,
+    borderWidth: 0.5,
+    borderRadius: 50,
+    borderColor: "#FF0001"
   }
 });
 
