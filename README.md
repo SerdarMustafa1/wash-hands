@@ -2,6 +2,8 @@
 
 Locate-Me is a simple application to help teach young kids how to effectively wash their hands, built using React Native and Expo.
 
+![App Preview](assets/preview.gif)
+
 ## Installation
 
 Clone the repo
